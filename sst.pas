@@ -82,8 +82,8 @@ Begin
     if TimeOut<1 then FlashError:=2;
     Y:=Flash_Read(Pos+X);    {Read last byte written}
     Inc( Attempt );
-   Until ( Attempt > 3 ) or  ( ( X and $A0 ) = Ld );
-   If ( ( X and $A0 ) <> Ld ) then
+   Until ( Attempt > 3 ) or  ( ( Y and $A0 ) = Ld );
+   If ( ( Y and $A0 ) <> Ld ) then
     Begin
      FlashError := 2; {programming error, timeout}
      Flash_Write(0,$FF); {reset}
